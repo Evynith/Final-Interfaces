@@ -1,0 +1,300 @@
+
+header {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & app-list-audiovisual {
+        z-index: 103;
+        position: absolute;
+        width: 100vw;
+        top: 80%;
+    }
+   
+    & > img.back {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center start;
+        margin: 0;
+        padding: 0;
+        z-index: 99;
+    }
+    & > iframe.back {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center start;
+        margin: 0;
+        padding: 0;
+        z-index: 99;       
+    }
+
+    video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center start;
+        margin: 0;
+        padding: 0;
+    }
+
+    & .overlay {
+        pointer-events: none;
+        z-index: 101;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--overlay-color);
+        background: linear-gradient(to top, black, rgba(0, 0, 0, 0));
+    }
+    & > div{
+        z-index: 102;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+figure {
+    position: absolute;
+    z-index: 104;
+    top: 50%;
+    left: 5%;
+    & .logo-movie {
+        height: 10vh;
+    }
+    & div {
+        width: 90vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        & > div:first-child {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            & app-button{
+                margin: 0.5rem;
+            }
+        }
+        & > div:last-child {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+
+    }
+
+}
+
+.hidden  {
+   display: none;
+}
+
+main{
+    & app-list-audiovisual {
+       min-height: calc( (9/16) * ((  ( 100vw - (1.1rem * 5 )) / 4.5)) + (2.25rem + 1rem)  );
+      margin-bottom: 1rem;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+             box-sizing: content-box;
+    }
+  
+    
+}
+
+.content .modal{
+    width: 100vw;
+    position: absolute;
+    z-index: 120;
+    background-color: var(--overlay-color);
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    & > div{
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: calc(100vw - 24vw);
+        background-color: var(--grey-200);
+        margin-top: 6rem;
+        margin-bottom: 6rem;
+
+       & div:first-child { //btn cerrar
+       width: 100%;
+       position: absolute;
+       display: flex;
+       flex-direction: row;
+       justify-content: flex-end;
+       margin-right: 1rem;
+        z-index: 130;
+       }
+       & .content-modal { //contenido
+        width: auto;
+        & picture {
+            height: calc( (9/16) * (100vw - 24vw)  );
+            width: 100%;
+            img{
+                height: 100%;
+                width: 100%;
+            }
+            & .trailerModal{
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: inherit;
+                z-index: 121;
+                & video {
+                    position: relative;
+                   // z-index: 121;
+                    width: 100%;
+                    height: 100%;
+                }
+                & > .trailerBtnModal {
+                    position: absolute;
+                    visibility: hidden;
+                    top: 0;
+                    left: 0;
+                   // z-index: 122;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.753);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    & app-button {
+                        position: relative;
+                    }
+                }
+                &:hover{
+                    .trailerBtnModal{
+                        visibility: visible;
+                    }
+                }
+            }
+            & .botonera {
+                pointer-events:none;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.663), rgba(0, 0, 0, 0));
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: inherit;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: flex-end;
+                z-index: 127;
+                & > div {
+                    pointer-events: visible;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    width: fit-content;
+                    & img{
+                        width: 40%;
+                    }
+                    & > div {
+                        pointer-events: visible;
+                        display: flex;
+                        flex-direction: row;
+                    & app-button { 
+                        pointer-events: visible;
+                        width: min-content;
+                        margin: 0.2rem;
+                    }
+                    }
+                }
+                
+            }
+        
+        }
+
+
+        .content-detalles{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            padding: 2rem;
+            padding-top: 0;
+
+            & div {
+                margin-top: 1.2rem;
+            }
+
+            & div:first-child {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-end;
+                margin-bottom: 0.5rem;
+                margin-right: 0;
+                & app-button {
+                    margin-right: 0.5rem;
+                }
+            }
+
+            article {
+                position: relative;
+                margin-bottom: 1rem;
+                & > div {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                & div:first-child {
+                    width: 65%;
+                }
+                
+                & p, div{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    }
+                    & section:first-child {
+                        width: 65%;
+                        p {
+                            padding-right: 1rem;
+                        }
+                    }
+                    & section:last-child {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        p {
+                            margin-bottom: 1rem;
+                        }
+                    }
+                }
+            }
+
+        }
+
+       }
+    }
+}
+
+.verde {
+    color: rgb(0, 233, 0);
+}

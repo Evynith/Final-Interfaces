@@ -1,0 +1,52 @@
+<div (mouseout)="mouseHover = false" (mouseenter)="mouseHover = true" >
+   <div class="tam1" [ngClass]="sizeContainer">
+       <figure class="tam1" [ngClass]="typeContainer == 'mini' ? 'mini' : ''">
+           <img [src]="element.portrait" alt="">
+       </figure>
+       <div *ngIf="typeContainer == 'continue' " class="bar">
+           <div [ngStyle]="{'width': element.advancePercentage + '%'}"></div>
+           <div [ngStyle]="{'width': 'calc(100% - ' + element.advancePercentage + '%)'}"></div>
+       </div>    
+   </div>
+    
+    <div [ngStyle]="{'display' : mouseHover == true ?  'block' : 'none'}" class="hover-img" (mouseleave)="mouseHover = false" (mouseover)="mouseHover = true">
+     
+        <div >
+            <figure>
+                <img [src]="element.portrait" alt="">
+                <app-button [ngStyle]="{'visibility': reproduciendo == true ? 'visible' : 'hidden'}" [background]="'btn-icon'" [btnType] = "'volume'" [btnText]="''" ></app-button>
+                <video (play)="reproduciendo = true" #videoPlayer muted="muted" *ngIf="mostrarVideo == true" (pause)="reproduciendo = false" (ended)="mostrarVideo = false; reproduciendo = false" src="../../../assets/videos/ghostTrailer.mp4" poster="../../../assets/audiovisuals/img/p1.jpg">
+                    Tu navegador no admite el elemento <code>video</code>.
+                </video>
+                <div (click)="toggleVideo()" class="trailerBtn">
+                    <app-button *ngIf="mostrarVideo == true"  #trailerBtn [background]="'btn-icon-not-background'" [btnType] = "'playCircle'" [btnText]="'Trailer     '" ></app-button>
+                    <app-button *ngIf="mostrarVideo == false" #trailerBtn [background]="'btn-icon-not-background'" [btnType] = "'replay'" [btnText]="'Trailer'" ></app-button>
+                </div>
+
+            </figure>
+            
+            <div class="contenido-hover">
+                <div>
+                    <div>
+                        <app-button [background]="'btn-resalt'" [btnType] = "'playArrow'" [btnText]="''" ></app-button>
+                        <app-button [background]="'btn-icon'" [btnType] = "'turned'" [btnText]="''" ></app-button>
+                        <app-button [background]="'btn-icon'" [btnType] = "'star'" [btnText]="'9.5'" ></app-button>
+                    </div>
+                    <app-button (click)="mostrarModal()" [background]="'btn-icon-not-background'" [btnType] = "'expandMore'" [btnText]="''"></app-button>
+                </div>
+                
+                <div>
+                    <p>{{element.percentajePersonalized}}% Para tí &nbsp;</p>
+                    <p>{{element.classification}} &nbsp;</p>
+                    <p>Año {{element.year}} &nbsp;</p>
+                    <p>{{element.duration}}min &nbsp;</p>
+                </div>
+                
+                <p>
+                   <span *ngFor="let genero of element.gender"> &nbsp;{{genero}} &bull;</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

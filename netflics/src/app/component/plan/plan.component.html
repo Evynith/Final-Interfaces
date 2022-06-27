@@ -1,0 +1,19 @@
+<div [ngClass]="{'resaltado' : resaltado == true}" class="container">
+    <div class="encabezadoPlan">
+        <p>$</p>
+        <h2>{{precio}}</h2>
+        <p>/mes</p>
+    </div>
+    <div>
+        <ul>
+            <li>Calidad {{calidad}}</li>
+            <li *ngIf="dispositivos == 1">{{dispositivos}} dispositivo a la vez</li>
+            <li *ngIf="dispositivos != 1">{{dispositivos}} dispositivos a la vez</li>
+            <li *ngIf="contenido == 'nacional'">Sólo contenido {{contenido}}</li>
+            <li *ngIf="contenido != 'nacional'">Contenido {{contenido}}</li>
+        </ul>
+    </div>
+    <div class="btn">
+        <app-button [background]="resaltado == true ? 'btn-alert' : 'btn-primary'" [btnType] = "''" [btnText]="'Suscribirme'" [linkRedirect]="'una url'"></app-button>
+    </div>
+</div>

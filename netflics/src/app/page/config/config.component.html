@@ -1,0 +1,131 @@
+<header>
+    <div>
+        <h2>
+            Configuración
+        </h2>
+    </div>
+    <div class="overlay"></div>
+</header>
+
+<main>
+   <div>
+    <div class="menu">
+        <div [ngClass]="estadoNum == 1 ? 'activo' : ''" (click)="estado(1)">
+            <h3 class="h5-size">Perfil</h3>
+        </div>
+        <div [ngClass]="estadoNum == 2 ? 'activo' : ''" (click)="estado(2)">
+            <h3 class="h5-size">Plan y facturación</h3>
+        </div>
+        <div [ngClass]="estadoNum == 3 ? 'activo' : ''" (click)="estado(3)">
+            <h3 class="h5-size">Configuración</h3>
+        </div>
+    </div>
+    <div class="contenido">
+
+        <div class="perfil" #perfil *ngIf="estadoNum == 1 ">
+            <div class="titulacion">
+                <p>Avatar</p> <a href="">Ver más</a>
+            </div>
+            <div>
+                <figure>
+                    <div [ngStyle]="{'background-image' : 'url(' + urlAvatar[0] + ')'}"></div>
+                </figure>
+                <figure>
+                    <div [ngStyle]="{'background-image' : 'url(' + urlAvatar[1] + ')'}"></div>
+                </figure>
+                <figure>
+                    <div [ngStyle]="{'background-image' : 'url(' + urlAvatar[2] + ')'}"></div>
+                </figure>
+                <figure>
+                    <div [ngStyle]="{'background-image' : 'url(' + urlAvatar[3] + ')'}"></div>
+                </figure>
+                <figure>
+                    <div [ngStyle]="{'background-image' : 'url(' + urlAvatar[4] + ')'}"></div>
+                </figure>
+                <figure>
+                    <div [ngStyle]="{'background-image' : 'url(' + urlAvatar[5] + ')'}"></div>
+                    <span class="material-icons-outlined">
+                        insert_photo
+                    </span>
+                </figure>
+            </div>
+            <div class="apodo">
+                <p>Apodo</p>
+                <input type="text" name="" id="">
+            </div>
+            <div class="btn-g">
+                <app-button [background]="'btn-primary'" [btnType] = "''" [btnText]="'Guardar cambios'" ></app-button>
+
+            </div>
+        </div>
+
+        <div class="plan" #plan *ngIf="estadoNum == 2 ">
+
+            <div class="element1">
+                <div class="titulacion">
+                    <p>Su plan</p>
+                    <a href="">Cambiar Plan</a>
+                </div>
+                <div class="contenidoPlan">
+                    <ul>
+                        <li>Calidad 4K</li>
+                        <li>4 dispositivos a la vez</li>
+                        <li>Contenido Internacional</li>
+                    </ul>
+                    <p class="clarification-size">Tu periodo de prueba termina el 27 de junio del 2022.</p>
+                </div>
+            </div>
+            <div  class="element2">
+                <div class="titulacion">
+                    <p>Datos de pago</p>
+                    <a href="">Cambiar datos de pago</a>
+                </div>
+                <div>
+                    <img src="../../../assets/extra/visalogo-tarjeta.jpg" alt="">
+                    <p>Visa crèdito xxxx-xxxx-xxxx-0000</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="config" #configuracion *ngIf="estadoNum == 3 ">
+
+            <div >
+                <div class="apodo">
+                    <p>Email <span>*</span></p> 
+                    <input placeholder="mail.actual@mimail.com" type="text" name="" id="">
+                </div>
+                <div class="apodo">
+                    <p>Contraseña  <span>*</span></p>
+                    <input [(ngModel)]="valuePass" placeholder="•••••••••••••" type="password" name="" id="">
+                </div>
+                <div *ngIf="valuePass != undefined && valuePass != ''" class="apodo">
+                    <p>Repita su nueva contraseña <span>*</span></p> 
+                    <input type="password" name="" id="">
+                </div>
+            </div>
+            <div class="btn-g">
+                <app-button [background]="'btn-primary'" [btnType] = "''" [btnText]="'Guardar cambios'" ></app-button>
+
+            </div>
+
+        </div>
+
+    </div>
+   </div>
+</main>
+
+<div class="modal">
+    <div>
+        <div>
+
+            <app-button [background]="'btn-icon'" [btnType] = "'close'" [btnText]="''" ></app-button>
+        </div>
+        <h2>Planes</h2>
+         <div>
+             <app-plan [precio]="0" [calidad]="'720p'" [dispositivos]="1" [contenido]="'nacional'"></app-plan>
+             <app-plan [precio]="400" [calidad]="'720p'" [dispositivos]="1" [contenido]="'internacional'"></app-plan>
+             <app-plan [precio]="470" [calidad]="'1080p'" [dispositivos]="3" [contenido]="'internacional'" [resaltado]="true"></app-plan>
+             <app-plan [precio]="580" [calidad]="'4K'" [dispositivos]="4" [contenido]="'internacional'"></app-plan>
+         </div>
+    </div>
+</div>

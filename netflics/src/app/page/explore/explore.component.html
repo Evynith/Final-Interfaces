@@ -1,0 +1,37 @@
+<header>
+    <div>
+        <h2>
+            Explorar
+        </h2>
+        <div>
+            <app-button [background]="'btn-filled'" [btnType] = "'expandMore'" [btnText]="'Series y peliculas'"></app-button>
+            <app-button [background]="'btn-filled'" [btnType] = "'expandMore'" [btnText]="'Gènero: Acciòn'"></app-button>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</header>
+
+<div>
+    <div class="escalon1">
+        <app-button #btn (click)="toggleFiltro(btn)" [background]="'btn-secondary'" [btnType] = "'filterList'" [btnText]="'Filtros'"></app-button>
+        <app-button [background]="'btn-secondary'" [btnType] = "'expandMore'" [btnText]="'Orden: Editorial'" ></app-button>
+    </div>
+    <div *ngIf="filtro == true" class="escalon2">
+        <div>
+           <p>Podès filtrar por paìs, dècada ò clasificaciòn</p> 
+        </div>
+        <div>
+            <app-button [background]="'btn-secondary'" [btnType] = "'expandMore'" [btnText]="'Pais: Todos'" ></app-button>
+            <app-button [background]="'btn-secondary'" [btnType] = "'expandMore'" [btnText]="'Dècada: Todas'" ></app-button>
+            <app-button [background]="'btn-secondary'" [btnType] = "'expandMore'" [btnText]="'Clasificaciòn: +16'" ></app-button>    
+        </div>
+    </div>
+</div>
+
+<main>
+    <app-list-audiovisual></app-list-audiovisual>
+    <app-list-audiovisual ></app-list-audiovisual>
+    <app-list-audiovisual></app-list-audiovisual>
+    <app-list-audiovisual></app-list-audiovisual>
+    <app-list-audiovisual></app-list-audiovisual>
+</main>

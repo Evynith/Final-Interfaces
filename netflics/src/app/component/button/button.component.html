@@ -1,0 +1,13 @@
+<button (click)="action()" [ngClass]="background" [routerLink]="linkRedirect">
+  <span class="material-icons-outlined">
+    {{typeObj}}
+  </span>
+  <span *ngIf="btnText"
+    ><p>{{ btnText }}</p>
+    </span
+  >
+  <span *ngIf="btnType == 'expandMore'" class="material-icons-outlined p-size">
+    expand_more
+  </span>
+  
+</button>

@@ -1,0 +1,43 @@
+header {
+    background-image: url('../../../assets/extra/wall-pelis1.webp');
+    height: 25vh;
+    position: relative;
+
+    & .overlay {
+        z-index: 101;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--overlay-color);
+        background: linear-gradient(to top, black,  var(--overlay-color));
+    }
+
+    & div:first-child {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        position: absolute;
+        top: 10vh;
+        left: 6vw;
+        z-index: 105;
+
+        & div {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            & app-button {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+
+main {
+
+h2 {
+    padding-left: 6vw;
+}
+}

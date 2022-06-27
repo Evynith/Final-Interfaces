@@ -1,0 +1,124 @@
+<div class="content">
+
+    <header>
+        <img class="back" src="../../../assets/headers/dune.jpg" alt="">
+        <!-- <iframe class="back" width="560" height="315" src="https://www.youtube.com/embed/1looWByWgW0?controls=0&amp;autoplay=1&amp;rel=0&amp;showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <video  muted="muted"  *ngIf="mostrarVideo == true" (play)="reproduciendoHome = true" (pause)="reproduciendoHome = false" (ended)="mostrarVideo = false; reproduciendoHome = false" src="../../../assets/videos/duneTrailer.mp4" autoplay poster="../../../assets/headers/dune.jpg">
+            Tu navegador no admite el elemento <code>video</code>.
+        </video>
+        <figure>
+            <img class="logo-movie" src="../../../assets/headers/logo/Dune_2021_transparent_logo.png" alt="">
+            <div>
+                <div>
+                    <app-button [background]="'btn-resalt'" [btnType] = "'playArrow'" [btnText]="'Reproducir'" [linkRedirect]="'una url'"></app-button>
+                    <app-button [background]="'btn-secondary'" [btnType] = "'info'" [btnText]="'Màs informaciòn'" [linkRedirect]="'una url'"></app-button>
+                </div>
+                <div>
+                    <app-button [ngStyle]="{'visibility': reproduciendoHome == true ? 'visible' : 'hidden'}"  [background]="'btn-icon'" [btnType] = "'volume'" [btnText]="''" ></app-button>
+                </div>
+            </div>
+        </figure>
+        <div class="overlay"></div>
+    
+        <app-list-audiovisual [typeList]="'mini'"></app-list-audiovisual>
+    </header>
+    
+    <main>
+        <app-list-audiovisual></app-list-audiovisual>
+        <app-list-audiovisual [typeList]="'continue'"></app-list-audiovisual>
+        <app-list-audiovisual [typeList]="'top'"></app-list-audiovisual>
+        <app-list-audiovisual></app-list-audiovisual>
+        <app-list-audiovisual></app-list-audiovisual>
+    </main>
+    
+    <div *ngIf="mostrarModal == true" class="modal">
+        <div >  
+            <div> 
+                <app-button (click)="ocultarModal()" [background]="'btn-icon'" [btnType] = "'close'" [btnText]="''" ></app-button>
+            </div>
+             <div class="content-modal">
+                <picture>
+                    <img [src]="pelicula.previewImage" alt="">
+                    <div (click)="toggleVideoModal()" class="trailerModal">
+                        <video (play)="reproduciendoModal = true" (pause)="reproduciendoModal = false" #videoPlayerModal muted="muted" *ngIf="mostrarVideoModal == true" (ended)="mostrarVideoModal = false; reproduciendoModal = false" src="../../../assets/videos/estortaTrailer.mp4" [poster]="pelicula.previewImage">
+                            Tu navegador no admite el elemento <code>video</code>.
+                        </video>
+                        <div  class="trailerBtnModal">
+                            <app-button *ngIf="mostrarVideoModal == true"  #trailerBtnModal [background]="'btn-icon-not-background'" [btnType] = "'playCircle'" [btnText]="'Trailer'" ></app-button>
+                            <app-button *ngIf="mostrarVideoModal == false" #trailerBtnModal [background]="'btn-icon-not-background'" [btnType] = "'replay'" [btnText]="'Trailer'" ></app-button>
+                        </div>    
+                    </div>
+                    <div class="botonera">
+                        <div>
+                            <img [src]="pelicula.logo" alt="">
+                          
+                            <div>
+                                <app-button [background]="'btn-resalt'" [btnType] = "'playArrow'" [btnText]="'Reproducir'" ></app-button>
+                                <app-button [background]="'btn-icon'" [btnType] = "'turned'" [btnText]="''" ></app-button>
+                                <app-button [background]="'btn-icon'" [btnType] = "'star'" [btnText]="'9.5'" ></app-button>
+                            </div>
+                        </div>
+                        <div>
+                            <app-button [ngStyle]="{'visibility': reproduciendoModal == true ? 'visible' : 'hidden'}" [background]="'btn-icon'" [btnType] = "'volume'" [btnText]="''" ></app-button>
+                        </div>
+                    </div>
+                </picture>
+                <div class="content-detalles">
+                    
+                    <div>
+                        <app-button [background]="'btn-filled'" [btnType] = "'expandMore'" [btnText]="'Capitulo 1'" ></app-button>
+                        <app-button [background]="'btn-filled'" [btnType] = "'expandMore'" [btnText]="'Temporada 1'" ></app-button>
+                    </div>
+
+                    <article>
+                        <div>
+                            <div>
+                                <h2>{{pelicula.title[0]}}</h2>
+                            </div>
+                            <div>
+                                <p class="verde">{{pelicula.percentajePersonalized}}% Para tí &nbsp;</p>
+                                <p>{{pelicula.classification}}&nbsp; Año {{pelicula.year}}&nbsp;  {{pelicula.duration}}min</p>
+                            </div>
+                        </div>
+                        <div>
+
+                            <section>
+                                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus maxime vero officia assumenda molestias expedita quo quaerat tempore ex, dolor dolores? Accusantium, sed. Iste dolore adipisci autem, nemo sunt eos. {{pelicula.description[0]}}</p>
+                            </section>
+                            <section>
+                                <p>
+                                    Elenco: <span *ngFor="let elenco  of pelicula.cast" >&nbsp;{{elenco}} &bull;</span>
+                                </p>
+                                <p>
+                                    Género:<span *ngFor="let genero of pelicula.gender"> &nbsp;{{genero}} &bull;</span>
+                                </p>
+                            </section>
+                        </div>
+                    </article>
+                    <div>
+                        <h2 class="h3-size">Opiniones</h2>
+                        <h3 class="h5-size">¿Cómo valoras esta película?</h3>
+                        <p>Tu valoración nos ayudará a recomendare mejores contenidos y ayudará a otros usuarios a elegir.</p>
+                    
+                        <div>
+                            <app-opinion [tipo]="'comentar'"></app-opinion>
+                            <app-opinion></app-opinion>
+                            <app-opinion></app-opinion>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2>Más titulos similares a éste</h2>
+                        <app-list-audiovisual [typeList]="'mini'"></app-list-audiovisual>
+                        <app-list-audiovisual [typeList]="'mini'"></app-list-audiovisual>
+                        <app-list-audiovisual [typeList]="'mini'"></app-list-audiovisual>
+                    </div>
+
+                </div>
+             </div>
+    
+        </div>
+    </div>
+
+
+</div>

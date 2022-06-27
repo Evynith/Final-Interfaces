@@ -1,0 +1,148 @@
+
+.carrousel {
+
+    overflow: visible;
+    z-index: 99;
+    min-height: calc( (9/16) * ((((100vw - (1.1rem * 5))) / 4.5) /2)  );
+    max-height: calc( (9/16) * ((  ( 100vw - (1.1rem * 5 )) / 4.5))  );
+    & .btnOverlay{
+        position: absolute;
+        width: 100%; 
+        z-index: 110;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        pointer-events: none;
+    }
+
+    & .listCorta {
+        overflow: visible;
+        & app-element-audiovisual:first-child{
+            shape-outside: inset(0 0 0 calc(var(--cubo) - var(--espacio-btn-cubo) + 1.1rem));
+            clip-path: inset(0 0 0 calc(var(--cubo) - var(--espacio-btn-cubo) + 1.1rem));
+        }
+        & app-element-audiovisual:last-child{
+            clip-path: inset(0 calc(var(--cubo) - var(--espacio-btn-cubo) + 1.1rem) 0 0);
+        }
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        left: calc(  ((var(--cubo) - var(--exedente)) + (1.3rem ) + (var(--exedente)/2) ) *-1);
+    
+    }
+
+    margin-bottom: 2rem;
+    
+    & .cuadrosSimples {
+        overflow: visible;
+        width: 100vw;
+        justify-content: center;
+       // padding: calc((var(--exedente)/2) + 0.6rem/2);
+       padding-left: 5vw;
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        & > div {
+            overflow: visible;
+            width: min-content;
+            display: flex;
+            flex-direction: row;
+                padding: 1.1rem;
+                margin: 0;
+        }
+       
+    }
+
+    & .listPequenia {
+        width: 100%;
+        justify-content:center;
+        overflow: visible;
+        // padding: calc((var(--exedente)/2) + 0.6rem/2);
+       // padding-left: 5vw;
+         position: absolute;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         & > div {
+             width: min-content;
+             display: flex;
+             flex-direction: row;
+                 padding: 1.1rem;
+                 margin: 0;
+         }
+    }
+    & .listNormal {
+        width: 100%;
+        justify-content:center;
+        overflow: visible;
+        // padding: calc((var(--exedente)/2) + 0.6rem/2);
+       // padding-left: 5vw;
+         position: absolute;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         & > div {
+             width: min-content;
+             display: flex;
+             flex-direction: row;
+                 padding: 1.1rem;
+                 margin: 0;
+         }
+    }
+}
+
+.selected {
+    background-color: var(--secondary-color);
+}
+
+.notSelected {
+    background-color: var(--grey-200);
+}
+
+.position{
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    & > div {
+        position: relative;
+        margin: 0.09rem;
+        height: 0.2rem;
+        width: 0.7rem;
+    }
+    & div:first-child {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+    }
+    & div:last-child {
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+}
+
+.encabezado {
+    min-height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-left: calc((var(--exedente)/2) + 1.1rem/2);
+    padding-right: calc((var(--exedente)/2) + 1.1rem);
+}
+
+*{
+    --cubo: calc((  ( 100vw - (1.1rem * 5 )) / 4.5));
+    --espacios:   calc( (1.1rem * 4) + (1.1rem /2) );
+    --exedente: calc( 100vw - (var(--espacios) + ( var(--cubo)*4)));
+    --espacio-btn-cubo: calc((var(--exedente)/2));
+    overflow-y: hidden;
+}
+
+.content {
+
+    app-element-audiovisual {
+        overflow: visible;
+    }
+}

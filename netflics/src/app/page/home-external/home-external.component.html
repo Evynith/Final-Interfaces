@@ -1,0 +1,83 @@
+<header>
+    <img class="back" src="../../../assets/headers/dune.jpg" alt="">
+    <img class="logo-movie" src="../../../assets/headers/logo/Dune_2021_transparent_logo.png" alt="">
+    <div class="overlay"></div>
+    <div>
+        <img class="logo" src="../../../assets/logo/netflics-logo.png" alt="">
+        <p>Películas y series con las historias que amas y nuevas por descubrir</p>
+        <div>
+            <app-button [background]="'btn-primary'" [btnType] = "''" [btnText]="'Probar 7 días gratis'" [linkRedirect]="'una url'"></app-button>
+            <app-button [background]="'btn-secondary'" [btnType] = "''" [btnText]="'Ya tengo Netflics'" [linkRedirect]="'una url'"></app-button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <app-list-audiovisual></app-list-audiovisual>
+    <div>
+        <div>
+            <h2>Disfutá dónde quieras</h2>
+            <p>Entrá desde la PC o tu móvil sin necesidad de instalar aplicaciones extra.</p>    
+        </div>
+        <img src="../../../assets/extra/device-pile.png" alt="">
+    </div>
+    <div>
+        <img src="../../../assets/extra/pngwing.com.png" alt="">
+        <div>
+            <h2>Calificá lo que veas</h2>
+            <p>Personalizaremos nuestras sugerencias según tus gusttos y además astarás ayudando a otros a elegir que ver.</p>    
+        </div>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <div class="box-acordeon">
+        
+        <div (click)="acordeon(acordeonElement1, acordeonBtn1)">
+            <p class="h4-size">¿Qué es Netflics?</p>
+            <app-button #acordeonBtn1 [background]="'btn-icon-not-background'" [btnType] = "'addAcordeon'" [btnText]="''"></app-button>
+        </div>
+        <div #acordeonElement #acordeonElement1 class="hidden">
+            <p>Netflics es un servicio de streaming que ofrece una gran variedad de películas, series y documentales premiados en casi cualquier pantalla conectada a internet. </p> <p>Todo lo que quieras ver, sin límites ni comerciales, a un costo muy accesible. Siempre hay algo nuevo por descubrir, ¡y todas las semanas se agregan más películas y series!</p>
+        </div>
+
+        <div (click)="acordeon(acordeonElement2, acordeonBtn2)">
+            <p class="h4-size">¿Cuánto cuesta Netflics?</p>
+            <app-button #acordeonBtn2 [background]="'btn-icon-not-background'" [btnType] = "'addAcordeon'" [btnText]="''"></app-button>
+        </div>
+        <div #acordeonElement  #acordeonElement2 class="hidden">
+            <p>Disfruta Netflix en tu smartphone, tablet, smart TV, laptop o dispositivo de streaming, todo por una tarifa plana mensual. Planes desde $0 hasta $580 al mes (sin impuestos incluidos). Sin costos adicionales ni contratos.</p>
+        </div>
+
+        <div (click)="acordeon(acordeonElement3, acordeonBtn3)">
+            <p class="h4-size">¿Dónde puedo ver Netflics?</p>
+            <app-button #acordeonBtn3 [background]="'btn-icon-not-background'" [btnType] = "'addAcordeon'" [btnText]="''"></app-button>
+        </div>
+        <div #acordeonElement #acordeonElement3 class="hidden">
+            <p>Disfruta donde quieras, cuando quieras. Inicia sesión en tu cuenta de Netflics para ver contenido al instante a través de netflics.com desde tu computadora personal o en cualquier dispositivo con conexión a internet que cuente con un navegador, como smart TV, smartphones, tablets, reproductores multimedia y consolas de juegos.</p>
+        </div>
+
+        <div  (click)="acordeon(acordeonElement4, acordeonBtn4)">
+            <p class="h4-size">¿Cómo cancelo?</p>
+            <app-button #acordeonBtn4 [background]="'btn-icon-not-background'" [btnType] = "'addAcordeon'" [btnText]="''"></app-button>
+        </div>
+        <div #acordeonElement #acordeonElement4 class="hidden">
+            <p>Netflics es flexible. Sin contratos molestos ni compromisos. Cancela la membresía online con solo dos clics. No hay cargos por cancelación. Empieza y termina cuando quieras.</p>
+        </div>
+
+        <div (click)="acordeon(acordeonElement5, acordeonBtn5)">
+            <p class="h4-size">¿Qué puedo ver en Netflics?</p>
+            <app-button #acordeonBtn5 [background]="'btn-icon-not-background'" [btnType] = "'addAcordeon'" [btnText]="''"></app-button>
+        </div>
+        <div #acordeonElement #acordeonElement5 class="hidden">
+            <p>Netflics tiene un amplio catálogo de películas, series, documentales, animes, originales premiados y más. Todo lo que quieras ver, cuando quieras.</p>
+        </div>
+    </div>
+
+    <div>
+        <h2>¿Ya te decidiste?</h2>
+        <div>
+            <app-button [background]="'btn-primary'" [btnType] = "''" [btnText]="'Probar 7 días gratis'" [linkRedirect]="'una url'"></app-button>
+        </div>
+    </div>
+
+</main>

@@ -1,0 +1,48 @@
+<div *ngIf="tipo == 'comentar'" class="comentar">
+    <div (mouseout)="hastaStar = starsPress">
+        <span (click)="starsPress = 0" (mouseenter)="hastaStar = 0" [ngStyle]="{'color' : hastaStar >= 0 ? 'yellow' : ''}" class="material-icons-outlined">
+            star
+        </span>
+        <span (click)="starsPress = 1"  (mouseenter)="hastaStar = 1"  [ngStyle]="{'color' : hastaStar >= 1 ? 'yellow' : ''}" class="material-icons-outlined">
+            star
+        </span>
+        <span (click)="starsPress = 2"  (mouseenter)="hastaStar = 2"  [ngStyle]="{'color' : hastaStar >= 2 ? 'yellow' : ''}" class="material-icons-outlined">
+            star
+        </span>
+        <span (click)="starsPress = 3"  (mouseenter)="hastaStar = 3"  [ngStyle]="{'color' : hastaStar >= 3 ? 'yellow' : ''}" class="material-icons-outlined">
+            star
+        </span>
+        <span (click)="starsPress = 4"  (mouseenter)="hastaStar = 4"  [ngStyle]="{'color' : hastaStar >= 4 ? 'yellow' : ''}" class="material-icons-outlined">
+            star
+        </span>
+    </div>
+    <textarea name="" id="" placeholder="Escriba su comentario aquí" cols="30" rows="10"></textarea>
+    <div>
+        <app-button [background]="'btn-primary'" [btnType] = "''" [btnText]="'Comentar'" ></app-button>
+    </div>
+</div>
+
+
+<div *ngIf="tipo != 'comentar'" class="comentario">
+    <div>
+        <picture>
+            <img [src]="comentario.imgComent" alt="">
+            <div>
+                <div *ngFor="let ind of [0,1,2,3,4]; index as i">
+                    <span [ngStyle]="{'color' : i < comentario.stars ? 'yellow' : ''}" class="material-icons-outlined">
+                        star
+                    </span>
+                </div>
+            </div>
+            
+        </picture>
+        <div>
+            <p> <b>{{comentario.nombreComent}}</b> dice el {{comentario.fechaComent}}</p>
+            <p>{{comentario.contentComent}}</p>
+        </div>
+    </div>
+    <div>
+        <app-button [background]="'btn-icon-not-background'" [btnType] = "'thumbUp'" [btnText]="comentario.like.toString()"></app-button>
+        <app-button [background]="'btn-icon-not-background'" [btnType] = "'thumbDown'" [btnText]="comentario.dislike.toString()" ></app-button>
+    </div>
+</div>

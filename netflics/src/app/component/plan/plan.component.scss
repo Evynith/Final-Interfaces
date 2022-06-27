@@ -1,0 +1,35 @@
+.encabezadoPlan{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+ul {
+    width: 100%;
+    margin-top: 1rem;
+        list-style-type: disc !important;
+        list-style-position: inside !important;
+        & li{
+            margin-top: 0.8rem;
+        }
+    }
+
+
+  .btn{
+        margin-top: 1rem;
+
+  }
+
+  .container{
+    padding: 1rem;
+    border: 0.3rem solid transparent;
+    border-image: linear-gradient(to bottom, #1b26e8 0%, #000107 100%) 1;
+    background: linear-gradient(to top, rgb(1, 1, 9), rgba(0, 20, 107, 0.65));
+  &.resaltado{
+    padding: 2rem;
+    border-image: linear-gradient(to bottom, #e5e81b 0%, #060700 100%) 1;
+    background: linear-gradient(to top, rgb(9, 8, 1), rgba(107, 98, 0, 0.65));
+}
+}
+
+ 
