@@ -11,6 +11,8 @@ export class ConfigComponent implements OnInit {
   estadoNum : number = 1;
   mostrarRepetir : boolean = false;
   valuePass : string = "";
+  mostrarPlanes : boolean = false;
+  urlHeader : string = "assets/extra/wall-pelis1.webp";
 
   constructor() { }
 

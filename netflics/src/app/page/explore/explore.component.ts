@@ -9,6 +9,7 @@ import { ButtonComponent } from 'src/app/component/button/button.component';
 export class ExploreComponent implements OnInit {
 
   filtro : boolean = false;
+  urlHeader : string = "assets/extra/wall-pelis1.webp";
   constructor() { }
 
   ngOnInit(): void {

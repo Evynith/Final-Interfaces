@@ -1,4 +1,4 @@
-<header>
+<header [ngStyle]="{'background-image': 'url(' + urlHeader +')'}">
     <div>
         <h2>
             Configuración
@@ -24,7 +24,7 @@
 
         <div class="perfil" #perfil *ngIf="estadoNum == 1 ">
             <div class="titulacion">
-                <p>Avatar</p> <a href="">Ver más</a>
+                <p>Avatar</p> <a>Ver más</a>
             </div>
             <div>
                 <figure>
@@ -64,7 +64,7 @@
             <div class="element1">
                 <div class="titulacion">
                     <p>Su plan</p>
-                    <a href="">Cambiar Plan</a>
+                    <a (click)="mostrarPlanes = true" >Cambiar Plan</a>
                 </div>
                 <div class="contenidoPlan">
                     <ul>
@@ -78,7 +78,7 @@
             <div  class="element2">
                 <div class="titulacion">
                     <p>Datos de pago</p>
-                    <a href="">Cambiar datos de pago</a>
+                    <a>Cambiar datos de pago</a>
                 </div>
                 <div>
                     <img src="assets/extra/visalogo-tarjeta.jpg" alt="">
@@ -114,11 +114,11 @@
    </div>
 </main>
 
-<div class="modal">
+<div [ngStyle]="{'visibility' : mostrarPlanes == true ? 'visible' : 'hidden'}" class="modal">
     <div>
         <div>
 
-            <app-button [background]="'btn-icon'" [btnType] = "'close'" [btnText]="''" ></app-button>
+            <app-button (click)="mostrarPlanes = false" [background]="'btn-icon'" [btnType] = "'close'" [btnText]="''" ></app-button>
         </div>
         <h2>Planes</h2>
          <div>

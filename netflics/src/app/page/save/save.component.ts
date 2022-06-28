@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SaveComponent implements OnInit {
 
+  urlHeader : string = "assets/extra/wall-pelis1.webp";
   constructor() { }
 
   ngOnInit(): void {
