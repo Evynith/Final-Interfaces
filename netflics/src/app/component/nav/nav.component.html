@@ -1,1 +1,19 @@
-<p>nav works!</p>
+<nav #navegador (scroll)="onWindowScroll()">
+    <div>
+        <img class="logo" src="assets/logo/netflics-logo.png" alt="">
+        <div>
+            <app-button [background]="'btn-icon-not-background'" [btnType] = "''" [btnText]="'Explorar'" ></app-button>
+            <app-button [background]="'btn-icon-not-background'" [btnType] = "''" [btnText]="'Guardados'" ></app-button>
+        </div>
+    </div>
+    <div>
+        <app-button [background]="'btn-icon-not-background'" [btnType] = "'search'" [btnText]="''" ></app-button>
+        <app-button [background]="'btn-icon-not-background'" [btnType] = "'notifications'" [btnText]="''" ></app-button>
+        <div>
+            <picture class="avatar">
+                <div  [ngStyle]="{'background-image' : 'url(' + urlAvatar + ')'}" alt=""></div>
+            </picture>
+            <app-button class="btnExpand" [background]="'btn-icon-not-background'" [btnType] = "'expandMore'" [btnText]="''" ></app-button>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,20 @@
+footer {
+    border-top: 0.1rem solid var(--secondary-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 3rem;
+
+    & > ul, div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & .logo {
+            width: calc((100vw / 4 ) /2);
+        }
+    }
+}
