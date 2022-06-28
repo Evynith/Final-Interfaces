@@ -15,7 +15,7 @@
             <figure>
                 <img [src]="element.portrait" alt="">
                 <app-button [ngStyle]="{'visibility': reproduciendo == true ? 'visible' : 'hidden'}" [background]="'btn-icon'" [btnType] = "'volume'" [btnText]="''" ></app-button>
-                <video (play)="reproduciendo = true" #videoPlayer muted="muted" *ngIf="mostrarVideo == true" (pause)="reproduciendo = false" (ended)="mostrarVideo = false; reproduciendo = false" src="../../../assets/videos/ghostTrailer.mp4" poster="../../../assets/audiovisuals/img/p1.jpg">
+                <video (play)="reproduciendo = true" #videoPlayer muted="muted" *ngIf="mostrarVideo == true" (pause)="reproduciendo = false" (ended)="mostrarVideo = false; reproduciendo = false" src="assets/videos/ghostTrailer.mp4" poster="assets/audiovisuals/img/p1.jpg">
                     Tu navegador no admite el elemento <code>video</code>.
                 </video>
                 <div (click)="toggleVideo()" class="trailerBtn">

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { audiovisual } from '../../models/audiovisual';
+import { audiovisual } from 'src/app/models/audiovisual';
 import { ModalService } from 'src/app/service/modal.service';
-import { ButtonComponent } from '../../component/button/button.component';
+import { ButtonComponent } from 'src/app/component/button/button.component';
 
 @Component({
   selector: 'app-home-internal',

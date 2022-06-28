@@ -1,13 +1,13 @@
 <div class="content">
 
     <header>
-        <img class="back" src="../../../assets/headers/dune.jpg" alt="">
+        <img class="back" src="assets/headers/dune.jpg" alt="">
         <!-- <iframe class="back" width="560" height="315" src="https://www.youtube.com/embed/1looWByWgW0?controls=0&amp;autoplay=1&amp;rel=0&amp;showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-        <video  muted="muted"  *ngIf="mostrarVideo == true" (play)="reproduciendoHome = true" (pause)="reproduciendoHome = false" (ended)="mostrarVideo = false; reproduciendoHome = false" src="../../../assets/videos/duneTrailer.mp4" autoplay poster="../../../assets/headers/dune.jpg">
+        <video  muted="muted"  *ngIf="mostrarVideo == true" (play)="reproduciendoHome = true" (pause)="reproduciendoHome = false" (ended)="mostrarVideo = false; reproduciendoHome = false" src="assets/videos/duneTrailer.mp4" autoplay poster="assets/headers/dune.jpg">
             Tu navegador no admite el elemento <code>video</code>.
         </video>
         <figure>
-            <img class="logo-movie" src="../../../assets/headers/logo/Dune_2021_transparent_logo.png" alt="">
+            <img class="logo-movie" src="assets/headers/logo/Dune_2021_transparent_logo.png" alt="">
             <div>
                 <div>
                     <app-button [background]="'btn-resalt'" [btnType] = "'playArrow'" [btnText]="'Reproducir'" [linkRedirect]="'una url'"></app-button>
@@ -40,7 +40,7 @@
                 <picture>
                     <img [src]="pelicula.previewImage" alt="">
                     <div (click)="toggleVideoModal()" class="trailerModal">
-                        <video (play)="reproduciendoModal = true" (pause)="reproduciendoModal = false" #videoPlayerModal muted="muted" *ngIf="mostrarVideoModal == true" (ended)="mostrarVideoModal = false; reproduciendoModal = false" src="../../../assets/videos/estortaTrailer.mp4" [poster]="pelicula.previewImage">
+                        <video (play)="reproduciendoModal = true" (pause)="reproduciendoModal = false" #videoPlayerModal muted="muted" *ngIf="mostrarVideoModal == true" (ended)="mostrarVideoModal = false; reproduciendoModal = false" src="assets/videos/estortaTrailer.mp4" [poster]="pelicula.previewImage">
                             Tu navegador no admite el elemento <code>video</code>.
                         </video>
                         <div  class="trailerBtnModal">

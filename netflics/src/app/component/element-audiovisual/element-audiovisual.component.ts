@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ModalService } from 'src/app/service/modal.service';
-import { audiovisual } from '../../models/audiovisual'
-import { ButtonComponent } from '../button/button.component';
+import { audiovisual } from 'src/app/models/audiovisual'
+import { ButtonComponent } from 'src/app/component/button/button.component';
 
 @Component({
   selector: 'app-element-audiovisual',

@@ -1,11 +1,11 @@
 export class audiovisual{
     public name : string = "¿Es pastel?";
-    public portrait : string = "../../../assets/audiovisuals/img/p1.jpg";
-    public logo : string = "../../../assets/audiovisuals/rep/es-pastel-logo.webp";
+    public portrait : string = "assets/audiovisuals/img/p1.jpg";
+    public logo : string = "assets/audiovisuals/rep/es-pastel-logo.webp";
     public advancePercentage : number = 70;
     public lastPremiere : Date | undefined;
     public type : string = "serie";
-    public previewImage : string = "../../../assets/audiovisuals/rep/es-pastel-serieimg.jpg";
+    public previewImage : string = "assets/audiovisuals/rep/es-pastel-serieimg.jpg";
     public score : number = 9.5;
     public duration : number = 136;
     public year : number = 2022;
