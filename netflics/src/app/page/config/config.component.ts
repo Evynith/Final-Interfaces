@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-config',
@@ -14,9 +15,21 @@ export class ConfigComponent implements OnInit {
   mostrarPlanes : boolean = false;
   urlHeader : string = "assets/extra/wall-pelis1.webp";
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) {
+   
+   }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      const data: any = params['seccion'] || null;
+        if(data == 'configuracion'){
+          this.estadoNum = 3;
+        } else if (data == 'facturacion'){
+          this.estadoNum = 2;
+        } else {
+          this.estadoNum = 1;
+        }
+    });
   }
   estado(num : number){
 

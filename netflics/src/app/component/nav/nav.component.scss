@@ -37,10 +37,51 @@ nav{
 
 }
 
+.expansion-perfil {
+    display: none;
+    position:absolute;
+    top: 100%;
+    right: calc(0% + 6vw);
+    background: var(--overlay-color);
+    padding:0;
+    z-index: 150;
+    width: fit-content;
+    list-style:none;
+
+    & li {
+        border-top: 00.07rem solid black;
+        position: relative;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        list-style:none;
+        width: calc(100% - 2rem);
+        display: flex;
+        flex-direction: row;
+        justify-content: stretch;
+        
+    }
+}
+
+.buscador {
+   input {
+    width: 0;
+    background: var(--overlay-color);
+    border: 0.02rem solid var(--light-color);
+    color: var(--light-color);
+    font-size: 1rem;
+    margin-right: -0.8rem;
+    transition: width 1s linear;
+    transition-delay: 1s;
+   }
+}
+
+.mostrarMenu{
+    display: block;
+}
+
 .navbar-inverse {
     background-color: var(--overlay-color);
 }
 
 *{
-    overflow: hidden;
+    overflow: visible;
 }

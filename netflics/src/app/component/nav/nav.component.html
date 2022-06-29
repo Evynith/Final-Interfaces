@@ -1,19 +1,28 @@
 <nav #navegador (scroll)="onWindowScroll()">
     <div>
-        <img class="logo" src="assets/logo/netflics-logo.png" alt="">
+        <img [routerLink]="'/inicio'" class="logo" src="assets/logo/netflics-logo.png" alt="">
         <div>
-            <app-button [background]="'btn-icon-not-background'" [btnType] = "''" [btnText]="'Explorar'" ></app-button>
-            <app-button [background]="'btn-icon-not-background'" [btnType] = "''" [btnText]="'Guardados'" ></app-button>
+            <app-button [background]="'btn-icon-not-background'" [btnType] = "''" [btnText]="'Explorar'" [linkRedirect]="'/explorar'"></app-button>
+            <app-button [background]="'btn-icon-not-background'" [btnType] = "''" [btnText]="'Guardados'" [linkRedirect]="'/guardados'"></app-button>
         </div>
     </div>
     <div>
-        <app-button [background]="'btn-icon-not-background'" [btnType] = "'search'" [btnText]="''" ></app-button>
+        <div class="buscador">
+            <input autofocus [ngStyle]="{ 'width' : inputBuscar == true ? 'inherit' : '0'}" *ngIf="inputBuscar == true" type="text">
+            <app-button (click)="inputBuscar = true" [background]="'btn-icon-not-background'" [btnType] = "'search'" [btnText]="''" ></app-button>
+        </div>
         <app-button [background]="'btn-icon-not-background'" [btnType] = "'notifications'" [btnText]="''" ></app-button>
         <div>
             <picture class="avatar">
                 <div  [ngStyle]="{'background-image' : 'url(' + urlAvatar + ')'}" alt=""></div>
             </picture>
-            <app-button class="btnExpand" [background]="'btn-icon-not-background'" [btnType] = "'expandMore'" [btnText]="''" ></app-button>
+            <app-button (click)="mostrarMenu(menuPerfil)" class="btnExpand" [background]="'btn-icon-not-background'" [btnType] = "'expandMore'" [btnText]="''" ></app-button>
+            <ul (click)="mostrarMenu(menuPerfil)" #menuPerfil class="expansion-perfil">
+                <li [routerLink]="'/configuracion'" [queryParams]="{seccion: 'perfil'}">Perfil </li>
+                <li [routerLink]="'/configuracion'" [queryParams]="{seccion: 'facturacion'}"> Facturacion</li>
+                <li [routerLink]="'/configuracion'" [queryParams]="{seccion: 'configuracion'}">Configuración</li>
+                <li [routerLink]="'/'">Cerrar sesión </li>
+            </ul>
         </div>
     </div>
 </nav>

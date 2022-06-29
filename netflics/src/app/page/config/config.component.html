@@ -10,13 +10,13 @@
 <main>
    <div>
     <div class="menu">
-        <div [ngClass]="estadoNum == 1 ? 'activo' : ''" (click)="estado(1)">
+        <div [ngClass]="estadoNum == 1 ? 'activo' : ''" [routerLink]="'/configuracion'" [queryParams]="{seccion: 'perfil'}">
             <h3 class="h5-size">Perfil</h3>
         </div>
-        <div [ngClass]="estadoNum == 2 ? 'activo' : ''" (click)="estado(2)">
+        <div [ngClass]="estadoNum == 2 ? 'activo' : ''" [routerLink]="'/configuracion'" [queryParams]="{seccion: 'facturacion'}">
             <h3 class="h5-size">Plan y facturación</h3>
         </div>
-        <div [ngClass]="estadoNum == 3 ? 'activo' : ''" (click)="estado(3)">
+        <div [ngClass]="estadoNum == 3 ? 'activo' : ''" [routerLink]="'/configuracion'" [queryParams]="{seccion: 'configuracion'}">
             <h3 class="h5-size">Configuración</h3>
         </div>
     </div>

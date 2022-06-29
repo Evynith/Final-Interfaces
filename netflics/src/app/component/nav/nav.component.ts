@@ -20,14 +20,15 @@ export class NavComponent implements OnInit {
       }
   }
 
-
-
+  inputBuscar : boolean = false;
   urlAvatar : string = "assets/extra/Avatar-de-perfil-de-Mirabel-Encanto-agregado-a-Disney.png";
   constructor() { }
 
   ngOnInit(): void {
   }
 
- 
+  mostrarMenu(menuPerfil: HTMLElement){
+    menuPerfil.classList.toggle('mostrarMenu');
+  } 
 
 }

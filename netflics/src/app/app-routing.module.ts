@@ -6,18 +6,26 @@ import { ExploreComponent } from './page/explore/explore.component';
 import { SearchComponent } from './page/search/search.component';
 import { SaveComponent } from './page/save/save.component';
 import { ConfigComponent } from './page/config/config.component';
+import { DesguardGuard } from './guard/desguard.guard';
+import { LoginService } from './service/login.service';
 
 const routes: Routes = [
-  { path: 'home', component: HomeExternalComponent },
-  { path: 'home2', component: HomeInternalComponent },
-  { path: 'explorar', component: ExploreComponent },
-  { path: 'buscar', component: SearchComponent },
-  { path: 'guardados', component: SaveComponent },
-  { path: 'configuracion', component: ConfigComponent }
+  { path: 'inicio', component: (() => {
+    return LoginService.islogin() == true ? HomeInternalComponent : HomeExternalComponent;
+  })() },
+  { path: 'explorar', component: ExploreComponent, canActivate : [DesguardGuard]  },
+  { path: 'buscar', component: SearchComponent, canActivate : [DesguardGuard]  },
+  { path: 'guardados', component: SaveComponent, canActivate : [DesguardGuard]  },
+  { path: 'configuracion', component: ConfigComponent, canActivate : [DesguardGuard] },
+  { path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  constructor(login : LoginService){
+
+  }
+}
