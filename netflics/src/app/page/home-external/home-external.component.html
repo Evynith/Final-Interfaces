@@ -2,13 +2,16 @@
     <img class="back" src="assets/headers/dune.jpg" alt="">
     <img class="logo-movie" src="assets/headers/logo/Dune_2021_transparent_logo.png" alt="">
     <div class="overlay"></div>
-    <div>
+    <div #menuHeader class="menuHeader">
+      <div>
+
         <img class="logo" src="assets/logo/netflics-logo.png" alt="">
         <p>Películas y series con las historias que amas y nuevas por descubrir</p>
         <div>
-            <app-button [background]="'btn-primary'" [btnType] = "''" [btnText]="'Probar 7 días gratis'" [linkRedirect]="'una url'"></app-button>
-            <app-button [background]="'btn-secondary'" [btnType] = "''" [btnText]="'Ya tengo Netflics'" [linkRedirect]="'una url'"></app-button>
+            <app-button (click)="modalCrearCuenta = true; moverHeaderIn()" [background]="'btn-primary'" [btnType] = "''" [btnText]="'Probar 7 días gratis'"></app-button>
+            <app-button [background]="'btn-secondary'" [btnType] = "''" [btnText]="'Ya tengo Netflics'" ></app-button>
         </div>
+      </div>
     </div>
 </header>
 
@@ -17,7 +20,7 @@
     <div>
         <div>
             <h2>Disfutá dónde quieras</h2>
-            <p>Entrá desde la PC o tu móvil sin necesidad de instalar aplicaciones extra.</p>    
+            <p>Entrá desde la PC o tu móvil sin necesidad de instalar aplicaciones extra.</p>
         </div>
         <img src="assets/extra/device-pile.png" alt="">
     </div>
@@ -25,13 +28,13 @@
         <img src="assets/extra/pngwing.com.png" alt="">
         <div>
             <h2>Calificá lo que veas</h2>
-            <p>Personalizaremos nuestras sugerencias según tus gusttos y además astarás ayudando a otros a elegir que ver.</p>    
+            <p>Personalizaremos nuestras sugerencias según tus gusttos y además astarás ayudando a otros a elegir que ver.</p>
         </div>
     </div>
 
     <h2>Preguntas frecuentes</h2>
     <div class="box-acordeon">
-        
+
         <div (click)="acordeon(acordeonElement1, acordeonBtn1)">
             <p class="h4-size">¿Qué es Netflics?</p>
             <app-button #acordeonBtn1 [background]="'btn-icon-not-background'" [btnType] = "'addAcordeon'" [btnText]="''"></app-button>
@@ -81,3 +84,46 @@
     </div>
 
 </main>
+
+<aside #modCC *ngIf="modalCrearCuenta == true">
+  <div>
+      <app-button (click)="cerrarModalForm(modCC)" [background]="'btn-icon'" [btnType] = "'close'" [btnText]="''" ></app-button>
+  </div>
+  <div>
+    <div>
+        <p>Paso {{lugar}} de 2</p>
+        <div class="position">
+            <div [ngClass]="lugar == 1 ? 'selected' : 'notSelected'"></div>
+            <div [ngClass]="lugar == 2 ? 'selected' : 'notSelected'"></div>
+        </div>
+    </div>
+    <form action="">
+        <h2>
+            Crea tu cuenta
+        </h2>
+        <div >
+            <div class="apodo">
+                <p>Apodo <span>*</span></p>
+                <input placeholder="Ingrese un apodo" type="text" name="" id="">
+            </div>
+            <div class="apodo">
+                <p>Email  <span>*</span></p>
+                <input placeholder="Ingrese su email" type="password" name="" id="">
+            </div>
+            <div class="apodo">
+                <p>Contraseña <span>*</span></p>
+                <input type="password" placeholder="Ingrese su email" name="" id="">
+            </div>
+        </div>
+        <div class="txtAceptar">
+            <p>
+                Al hacer click en "Crear cuenta" confirmas que tienes al menos 18 años, aceptas los <a>Términos de uso</a>, y reconoces que has leido y aceptado nuestra <a>Politica de privacidad</a>.
+            </p>
+            <div class="btn-g">
+                <app-button [background]="'btn-primary'" [btnType] = "''" [btnText]="'Crear cuenta'" ></app-button>
+
+            </div>
+        </div>
+    </form>
+  </div>
+</aside>

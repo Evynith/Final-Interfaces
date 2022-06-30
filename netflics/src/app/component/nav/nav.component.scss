@@ -18,6 +18,7 @@ nav{
         height: 7vh;
         & .logo {
             height: 100%;
+            cursor: pointer;
         }
         & .avatar {
             height: 85%;
@@ -57,7 +58,7 @@ nav{
         display: flex;
         flex-direction: row;
         justify-content: stretch;
-        
+
     }
 }
 

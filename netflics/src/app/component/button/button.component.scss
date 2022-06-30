@@ -10,12 +10,13 @@ button {
     align-content: center;
     justify-content: center;
     width: 100%;
-    &.btn-primary{ 
+    cursor: pointer;
+    &.btn-primary{
         background-color: var(--primary-color);
        }
-       &.btn-resalt{ 
+       &.btn-resalt{
         background-color: var( --light-color);
-        span, p{  
+        span, p{
             color: var(--dark-color);
         }
        }
@@ -24,31 +25,31 @@ button {
     }
     &.btn-alert{
         background-color: var(--alert-color);
-        span, p{  
+        span, p{
             color: var(--grey-100);
         }
     }
     &.btn-icon-not-background{
         background-color: rgba(0, 0, 0, 0);
-        span, p{  
+        span, p{
             color: var( --light-color);
         }
        }
        &.btn-filled{
         background-color: rgba(0, 0, 0, 0);
         border: 0.12rem solid var(--light-color);
-        span, p{  
+        span, p{
             color: var( --light-color);
         }
     }
     &.btn-icon{
         background-color: var(--overlay-color-btn);
-        span, p{  
+        span, p{
             color: var( --light-color);
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0);
-        }   
+        }
     }
     &.btn-aside{
         height: calc( (9/16) * calc((  ( 100vw - (1.1rem * 5 )) / 4.5)));

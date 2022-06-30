@@ -24,8 +24,15 @@ header {
         background: linear-gradient(to top, black, var(--overlay-color));
     }
     & div:nth-child(4){
+      position: absolute;
+      width: 100vw;
+      z-index: 102;
+
+      left: 0;
+      & > div {
+
         z-index: 102;
-        position: absolute;
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -33,13 +40,13 @@ header {
             padding: 1rem 3rem;
             filter: drop-shadow(1px 1px 2px var(--overlay-color));
             -webkit-filter: drop-shadow(1px 1px 2px var(--overlay-color));
-            -moz-filter: drop-shadow(1px 1px 2px var(--overlay-color));   
+            -moz-filter: drop-shadow(1px 1px 2px var(--overlay-color));
         }
         & > div{
            position: relative;
-           left: 0; 
+           left: 0;
            display:block;
-           width: max-content;        
+           width: max-content;
         }
         & p {
             max-width: fit-content;
@@ -47,6 +54,7 @@ header {
             text-align: center;
             margin-bottom: 0.5rem;
         }
+      }
     }
 }
 
@@ -88,7 +96,7 @@ header {
     & > div:nth-child(even) {
         margin-top: 0.08rem;
     }
-}   
+}
 
 main{
     & app-list-audiovisual {
@@ -110,7 +118,7 @@ main{
             width: max-content;
         }
     }
-    
+
     & > div:nth-child(2) {
         display: flex;
         flex-direction: row;
@@ -134,6 +142,133 @@ main{
         width: 50%;
         height: 100%;
     }}
-  
-    
+
+
+}
+
+.apodo {
+    padding-left: 0;
+   // padding-top: 2rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    display: flex;
+flex-direction: column;
+ & p {
+    margin-bottom: 0.2rem;
+    & span {
+        color: red;
+    }
+ }
+ & input{
+    font-size: 1rem;
+    color: var(--dark-color);
+ }
+}
+.btn-g {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    & app-button {
+        width: fit-content;
+    }
+}
+
+@keyframes movFormInic {
+  from { right: -50vw; }
+  to { right: 3vw; }
+}
+
+aside {
+  position: absolute;
+  padding: 3rem;
+  bottom: 25vh;
+  right: 3vw;
+  width: 20vw;
+  min-width: 450px ;
+  background-color: var(--grey-200);
+  z-index: 140;
+
+  animation-name:  movFormInic;
+  animation-duration: 1s;
+  //animation-timing-function: ease-out;
+
+  & > div:first-child { //btn cerrar
+      width: calc(100% - 4rem);
+      top: 1rem;
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-right: 1rem;
+        z-index: 130;
+      }
+
+  & > div:last-child {
+    margin-top: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2.5rem;
+
+      .position{
+        width: max-content;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        & > div {
+            position: relative;
+            margin: 0.09rem;
+            height: 0.2rem;
+            width: 0.7rem;
+        }
+        & div:first-child {
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+        & div:last-child {
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+    }
+    }
+
+    & form {
+      h2 {
+        margin-bottom: 1rem;
+      }
+      & .txtAceptar {
+        padding: 1rem;
+        border-radius: 10px;
+        background-color:  var(--overlay-color-btn);
+
+        & > div {
+          display: flex;
+          flex-direction: row;
+         justify-content: center;
+        }
+      }
+    }
+
+    a {
+        color: var(--info-color);
+        cursor: pointer;
+    }
+
+  }
+}
+
+.selected {
+  background-color: var(--secondary-color);
+}
+
+.notSelected {
+  background-color: var(--grey-100);
 }
