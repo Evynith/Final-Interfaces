@@ -6,11 +6,11 @@
        <div *ngIf="typeContainer == 'continue' " class="bar">
            <div [ngStyle]="{'width': element.advancePercentage + '%'}"></div>
            <div [ngStyle]="{'width': 'calc(100% - ' + element.advancePercentage + '%)'}"></div>
-       </div>    
+       </div>
    </div>
-    
-    <div [ngStyle]="{'display' : mouseHover == true ?  'block' : 'none'}" class="hover-img" (mouseleave)="mouseHover = false" (mouseover)="mouseHover = true">
-     
+
+    <div *ngIf="typeContainer != 'mini'" [ngStyle]="{'display' : mouseHover == true ?  'block' : 'none'}" class="hover-img" (mouseleave)="mouseHover = false" (mouseover)="mouseHover = true">
+
         <div >
             <figure>
                 <img [src]="element.portrait" alt="">
@@ -24,7 +24,7 @@
                 </div>
 
             </figure>
-            
+
             <div class="contenido-hover">
                 <div>
                     <div>
@@ -34,14 +34,14 @@
                     </div>
                     <app-button (click)="mostrarModal()" [background]="'btn-icon-not-background'" [btnType] = "'expandMore'" [btnText]="''"></app-button>
                 </div>
-                
+
                 <div>
                     <p>{{element.percentajePersonalized}}% Para tí &nbsp;</p>
                     <p>{{element.classification}} &nbsp;</p>
                     <p>Año {{element.year}} &nbsp;</p>
                     <p>{{element.duration}}min &nbsp;</p>
                 </div>
-                
+
                 <p>
                    <span *ngFor="let genero of element.gender"> &nbsp;{{genero}} &bull;</span>
                 </p>
