@@ -9,7 +9,7 @@
     <div>
         <div class="buscador">
             <input autofocus [ngStyle]="{ 'width' : inputBuscar == true ? 'inherit' : '0'}" *ngIf="inputBuscar == true" type="text">
-            <app-button (click)="inputBuscar = true" [background]="'btn-icon-not-background'" [btnType] = "'search'" [btnText]="''" ></app-button>
+            <app-button routerLink]="'/cbuscar'" (click)="inputBuscar = true" [background]="'btn-icon-not-background'" [btnType] = "'search'" [btnText]="''" ></app-button>
         </div>
         <app-button [background]="'btn-icon-not-background'" [btnType] = "'notifications'" [btnText]="''" ></app-button>
         <div>
