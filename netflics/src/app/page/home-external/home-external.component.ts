@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { timeout } from 'rxjs';
 import { ButtonComponent } from 'src/app/component/button/button.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-home-external',
@@ -9,8 +11,8 @@ import { ButtonComponent } from 'src/app/component/button/button.component';
 })
 export class HomeExternalComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
-  //@ViewChild('menuHeader') menuHeader?: HTMLElement;
+  constructor(private login : LoginService, private router : Router) { }
+
 
   ngOnInit(): void {
   }
@@ -19,7 +21,20 @@ export class HomeExternalComponent implements OnInit, AfterViewInit {
   }
   lugar : number = 1;
   modalCrearCuenta : boolean = false;
+  modalIngresar  : boolean = false;
+  bienvenida : boolean  = false;
   lugarHeader : number = window.innerWidth;
+  urlAvatar : string = "assets/extra/Avatar-de-perfil-de-Mirabel-Encanto-agregado-a-Disney.png";
+  ultimoModal : HTMLElement | undefined;
+  spinner : boolean = false;
+
+  cargarUsuario(){
+    this.spinner = true;
+    this.bienvenida = true;
+    setTimeout(()=> {
+      this.spinner = false;
+    }, 2000);
+  }
 
   acordeon(acordeonElement : HTMLElement, element: ButtonComponent) {
     element.action();
@@ -77,6 +92,19 @@ export class HomeExternalComponent implements OnInit, AfterViewInit {
     this.modalCrearCuenta = false;
   }
 
+  cerrarModalIng(){
+    this.modalIngresar = false;
+  }
+
+  cerrarOtroModal(modal : number) {
+    if (modal == 1){
+      this.modalIngresar = false;
+    }
+   if (modal ==2){
+    this.modalCrearCuenta = false;
+   }
+  }
+
   cerrarModalForm(modal : HTMLElement) {
    let animacion = modal.animate([
     // fotogramas clave
@@ -89,8 +117,13 @@ export class HomeExternalComponent implements OnInit, AfterViewInit {
   });
   this.moverHeaderOut();
 
-  animacion.finished.then(()=>{this.cerrarModalCC();});
+  animacion.finished.then(()=>{this.cerrarModalCC(); this.cerrarModalIng();});
 
+  }
+
+  entrarSesion() {
+    LoginService.login = true ;
+    this.router.navigate(['/']);
   }
 
 }

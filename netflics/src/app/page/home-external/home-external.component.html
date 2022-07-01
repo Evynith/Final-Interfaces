@@ -8,8 +8,8 @@
         <img class="logo" src="assets/logo/netflics-logo.png" alt="">
         <p>Películas y series con las historias que amas y nuevas por descubrir</p>
         <div>
-            <app-button (click)="modalCrearCuenta = true; moverHeaderIn()" [background]="'btn-primary'" [btnType] = "''" [btnText]="'Probar 7 días gratis'"></app-button>
-            <app-button [background]="'btn-secondary'" [btnType] = "''" [btnText]="'Ya tengo Netflics'" ></app-button>
+            <app-button (click)="modalCrearCuenta = true; moverHeaderIn(); cerrarOtroModal(1)" [background]="'btn-primary'" [btnType] = "''" [btnText]="'Probar 7 días gratis'"></app-button>
+            <app-button (click)="modalIngresar = true; moverHeaderIn(); cerrarOtroModal(2)" [background]="'btn-secondary'" [btnType] = "''" [btnText]="'Ya tengo Netflics'" ></app-button>
         </div>
       </div>
     </div>
@@ -83,47 +83,107 @@
         </div>
     </div>
 
+
+    <aside #modCC *ngIf="modalCrearCuenta == true">
+      <div>
+
+        <div>
+            <app-button (click)="cerrarModalForm(modCC); " [background]="'btn-icon'" [btnType] = "'close'" [btnText]="''" ></app-button>
+        </div>
+        <div>
+          <div>
+              <p>Paso {{lugar}} de 2</p>
+              <div class="position">
+                  <div [ngClass]="lugar == 1 ? 'selected' : 'notSelected'"></div>
+                  <div [ngClass]="lugar == 2 ? 'selected' : 'notSelected'"></div>
+              </div>
+          </div>
+          <form action="">
+              <h2>
+                  Crea tu cuenta
+              </h2>
+              <div >
+                  <div class="apodo">
+                      <p>Apodo <span>*</span></p>
+                      <input placeholder="Ingrese un apodo" type="text" name="" id="">
+                  </div>
+                  <div class="apodo">
+                      <p>Email  <span>*</span></p>
+                      <input placeholder="Ingrese una contraseña" type="password" name="" id="">
+                  </div>
+                  <div class="apodo">
+                      <p>Contraseña <span>*</span></p>
+                      <input type="password" placeholder="Ingrese su email" name="" id="">
+                  </div>
+              </div>
+              <div class="txtAceptar">
+                  <p>
+                      Al hacer click en "Crear cuenta" confirmas que tienes al menos 18 años, aceptas los <a>Términos de uso</a>, y reconoces que has leido y aceptado nuestra <a>Politica de privacidad</a>.
+                  </p>
+                  <div class="btn-g">
+                      <app-button (click)="entrarSesion()" [background]="'btn-primary'" [btnType] = "''" [btnText]="'Crear cuenta'" ></app-button>
+
+                  </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </aside>
+
+    <aside #modIng *ngIf="modalIngresar == true">
+      <div>
+
+        <div>
+            <app-button (click)="cerrarModalForm(modIng)" [background]="'btn-icon'" [btnType] = "'close'" [btnText]="''" ></app-button>
+        </div>
+        <div>
+          <div *ngIf="bienvenida == false">
+             <h2>Iniciar sesión</h2>
+          </div>
+          <form action="">
+            <div class="bienvenida"  *ngIf="bienvenida == true && spinner == false">
+              <h2>
+                  Bienvenido <b>Usuario</b>!
+              </h2>
+              <div>
+                <picture class="avatar">
+                  <div  [ngStyle]="{'background-image' : 'url(' + urlAvatar + ')'}" alt=""></div>
+                </picture>
+              </div>
+              <a (click)="bienvenida = false">No soy <b>Usuario</b></a>
+
+            </div>
+            <div *ngIf="spinner == true" class="contS">
+              <div id="segundo" class="spinner">
+                <div id="pos1" class="bolita"></div>
+                <div id="pos2" class="bolita"></div>
+                <div id="pos3" class="bolita"></div>
+                <div id="pos4" class="bolita"></div>
+                <div id="pos5" class="bolita"></div>
+                <div id="pos6" class="bolita"></div>
+                <div id="pos7" class="bolita"></div>
+                <div id="pos8" class="bolita"></div>
+              </div>
+            </div>
+              <div >
+                  <div *ngIf="bienvenida == false" class="apodo">
+                      <p>Usuario</p>
+                      <input (click)="cargarUsuario()" placeholder="Ingrese su email" type="email" name="" id="">
+                  </div>
+                  <div class="apodo">
+                    <div>
+                      <p>Contraseña</p> <a>Olvidé mi contraseña</a>
+                    </div>
+                      <input type="password" placeholder="Ingrese su contraseña" name="" id="">
+                  </div>
+              </div>
+              <div class="btnIngresar">
+                  <div class="btn-g">
+                      <app-button (click)="entrarSesion()" [background]="'btn-primary'" [btnType] = "''" [btnText]="'Ingresar'" ></app-button>
+                  </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </aside>
 </main>
-
-<aside #modCC *ngIf="modalCrearCuenta == true">
-  <div>
-      <app-button (click)="cerrarModalForm(modCC)" [background]="'btn-icon'" [btnType] = "'close'" [btnText]="''" ></app-button>
-  </div>
-  <div>
-    <div>
-        <p>Paso {{lugar}} de 2</p>
-        <div class="position">
-            <div [ngClass]="lugar == 1 ? 'selected' : 'notSelected'"></div>
-            <div [ngClass]="lugar == 2 ? 'selected' : 'notSelected'"></div>
-        </div>
-    </div>
-    <form action="">
-        <h2>
-            Crea tu cuenta
-        </h2>
-        <div >
-            <div class="apodo">
-                <p>Apodo <span>*</span></p>
-                <input placeholder="Ingrese un apodo" type="text" name="" id="">
-            </div>
-            <div class="apodo">
-                <p>Email  <span>*</span></p>
-                <input placeholder="Ingrese su email" type="password" name="" id="">
-            </div>
-            <div class="apodo">
-                <p>Contraseña <span>*</span></p>
-                <input type="password" placeholder="Ingrese su email" name="" id="">
-            </div>
-        </div>
-        <div class="txtAceptar">
-            <p>
-                Al hacer click en "Crear cuenta" confirmas que tienes al menos 18 años, aceptas los <a>Términos de uso</a>, y reconoces que has leido y aceptado nuestra <a>Politica de privacidad</a>.
-            </p>
-            <div class="btn-g">
-                <app-button [background]="'btn-primary'" [btnType] = "''" [btnText]="'Crear cuenta'" ></app-button>
-
-            </div>
-        </div>
-    </form>
-  </div>
-</aside>

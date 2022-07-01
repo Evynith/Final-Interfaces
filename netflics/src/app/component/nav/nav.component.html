@@ -1,4 +1,4 @@
-<nav #navegador (scroll)="onWindowScroll()">
+<nav #navegador *ngIf="loged == true" (scroll)="onWindowScroll()">
     <div>
         <img [routerLink]="'/inicio'" class="logo" src="assets/logo/netflics-logo.png" alt="">
         <div>
@@ -21,7 +21,7 @@
                 <li [routerLink]="'/configuracion'" [queryParams]="{seccion: 'perfil'}">Perfil </li>
                 <li [routerLink]="'/configuracion'" [queryParams]="{seccion: 'facturacion'}"> Facturacion</li>
                 <li [routerLink]="'/configuracion'" [queryParams]="{seccion: 'configuracion'}">Configuración</li>
-                <li [routerLink]="'/'">Cerrar sesión </li>
+                <li (click)="cerrarSesion()">Cerrar sesión </li>
             </ul>
         </div>
     </div>

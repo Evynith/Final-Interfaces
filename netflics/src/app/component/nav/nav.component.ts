@@ -1,4 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-nav',
@@ -22,13 +24,22 @@ export class NavComponent implements OnInit {
 
   inputBuscar : boolean = false;
   urlAvatar : string = "assets/extra/Avatar-de-perfil-de-Mirabel-Encanto-agregado-a-Disney.png";
-  constructor() { }
+  constructor(private login : LoginService, private router : Router) { }
 
+  get loged() {
+    return LoginService.login;
+  }
   ngOnInit(): void {
   }
 
   mostrarMenu(menuPerfil: HTMLElement){
     menuPerfil.classList.toggle('mostrarMenu');
-  } 
+  }
+
+
+  cerrarSesion() {
+    LoginService.login = false ;
+    this.router.navigate(['/']);
+  }
 
 }

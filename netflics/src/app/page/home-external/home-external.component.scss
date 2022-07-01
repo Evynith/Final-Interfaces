@@ -163,6 +163,11 @@ flex-direction: column;
     font-size: 1rem;
     color: var(--dark-color);
  }
+ & div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ }
 }
 .btn-g {
     width: 100%;
@@ -182,86 +187,160 @@ flex-direction: column;
 
 aside {
   position: absolute;
-  padding: 3rem;
-  bottom: 25vh;
+  top: 0;
   right: 3vw;
-  width: 20vw;
-  min-width: 450px ;
-  background-color: var(--grey-200);
   z-index: 140;
-
   animation-name:  movFormInic;
   animation-duration: 1s;
   //animation-timing-function: ease-out;
-
-  & > div:first-child { //btn cerrar
-      width: calc(100% - 4rem);
-      top: 1rem;
-      position: absolute;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      margin-right: 1rem;
-        z-index: 130;
-      }
-
-  & > div:last-child {
-    margin-top: 2rem;
+  height: 90vh;
+  width: 20vw;
+  min-width: 450px ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & > div {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    padding: 3rem;
+    background-color: var(--grey-200);
 
-    & > div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 2.5rem;
-
-      .position{
-        width: max-content;
+    & > div:first-child { //btn cerrar
+        width: calc(100% - 4rem);
+        top: 1rem;
+        position: absolute;
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        & > div {
-            position: relative;
-            margin: 0.09rem;
-            height: 0.2rem;
-            width: 0.7rem;
+        margin-right: 1rem;
+          z-index: 130;
         }
-        & div:first-child {
-            border-top-left-radius: 50%;
-            border-bottom-left-radius: 50%;
-        }
-        & div:last-child {
-            border-top-right-radius: 50%;
-            border-bottom-right-radius: 50%;
-        }
-    }
-    }
 
-    & form {
-      h2 {
-        margin-bottom: 1rem;
-      }
-      & .txtAceptar {
-        padding: 1rem;
-        border-radius: 10px;
-        background-color:  var(--overlay-color-btn);
+    & > div:last-child {
+      margin-top: 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
 
-        & > div {
+      & > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2.5rem;
+
+        .position{
+          width: max-content;
           display: flex;
           flex-direction: row;
-         justify-content: center;
+          justify-content: flex-end;
+          & > div {
+              position: relative;
+              margin: 0.09rem;
+              height: 0.2rem;
+              width: 0.7rem;
+          }
+          & div:first-child {
+              border-top-left-radius: 50%;
+              border-bottom-left-radius: 50%;
+          }
+          & div:last-child {
+              border-top-right-radius: 50%;
+              border-bottom-right-radius: 50%;
+          }
+      }
+      }
+
+      & form {
+        width: 100%;
+        h2 {
+          margin-bottom: 1rem;
+        }
+        & .txtAceptar {
+          padding: 1rem;
+          border-radius: 10px;
+          background-color:  var(--overlay-color-btn);
+
+          & > div {
+            display: flex;
+            flex-direction: row;
+           justify-content: center;
+          }
         }
       }
-    }
+      & .btnIngresar {
+        .btn-g {
 
-    a {
-        color: var(--info-color);
-        cursor: pointer;
-    }
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+      }
 
+      a {
+          color: var(--info-color);
+          cursor: pointer;
+      }
+      & .bienvenida {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3rem;
+
+        @keyframes h2Mov{
+          from { transform: translateY( calc(2.25rem * 2)); }
+          to   { transform: translateY(0); }
+        }
+
+        h2{
+          animation: h2Mov 2s;
+          z-index: 160;
+        }
+
+        b {
+          color: var(--alert-color);
+        }
+
+        & > a {
+          color: var(--info-color);
+          b {
+            color: var(--info-color) !important;
+          }
+        }
+        & > div {
+          height: fit-content;
+          width: 100%;
+          background-color: var(--grey-200);
+          z-index: 167;
+          .avatar {
+           width: 100%;
+           display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            & > div {
+              width: 30%;
+              height: auto;
+              aspect-ratio: 1/1;
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+          }
+        }
+
+      }
+      & .contS{
+        overflow: hidden;
+        width: 100%;
+        height: calc(  (450px * 0.3 ) + 2.25rem + 1rem + 3rem);
+        min-height: fit-content;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 }
 
@@ -271,4 +350,38 @@ aside {
 
 .notSelected {
   background-color: var(--grey-100);
+}
+
+.spinner{
+  width: 2rem;
+  aspect-ratio: 1/1;
+  display: grid;
+  overflow: visible;
+  grid-template-areas:
+  ". b1 b2 . "
+  "b8 . . b3"
+  "b7 . . b4"
+  ". b6 b5 ."
+  ;
+}
+
+.bolita{
+  background-color: var(--alert-color);
+  border-radius: 5%;
+  animation: spinner 0.8s infinite;
+}
+
+#pos1 {grid-area: b1; }
+#pos2 {grid-area: b2;  animation-delay: 0.1s;}
+#pos3 {grid-area: b3;  animation-delay: 0.2s;}
+#pos4 {grid-area: b4;  animation-delay: 0.3s;}
+#pos5 {grid-area: b5;  animation-delay: 0.4s;}
+#pos6 {grid-area: b6;  animation-delay: 0.5s;}
+#pos7 {grid-area: b7;  animation-delay: 0.6s;}
+#pos8 {grid-area: b8;  animation-delay: 0.7s;}
+/* #pos9 {grid-area: b1;  } */
+
+@keyframes spinner{
+  from { transform: scale(2); opacity: 1;}
+  to   { transform: scale(0); opacity: 0;}
 }

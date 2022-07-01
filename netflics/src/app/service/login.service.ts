@@ -8,11 +8,11 @@ export class LoginService {
   private static _login: boolean = false;
   constructor() { }
 
-  static saveLogin(log: boolean){
+  static set login(log: boolean){
     this._login = log;
   }
 
-  static islogin() {
+  static get login() {
     return this._login;
   }
 }

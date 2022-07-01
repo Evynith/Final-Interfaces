@@ -21,6 +21,7 @@ import { PlanComponent } from './component/plan/plan.component';
 import { InputComponent } from './component/input/input.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { ListAudiovisualComponent } from './component/list-audiovisual/list-audiovisual.component';
+import { HomeComponent } from './page/home/home.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ListAudiovisualComponent } from './component/list-audiovisual/list-audi
     PlanComponent,
     InputComponent,
     ModalComponent,
-    ListAudiovisualComponent
+    ListAudiovisualComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -7,22 +7,29 @@ import { LoginService } from '../service/login.service';
   providedIn: 'root'
 })
 export class DesguardGuard implements CanActivate {
-  
+
   constructor(private login : LoginService ,private router: Router) {
 
   }
 
   redirect(flag: boolean): any {
     if (!flag){
-      this.router.navigate(['/', 'home']);
+      this.router.navigate(['/inicio']);
     }
   }
-  
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-     
-      return LoginService.islogin();
+
+      let logueado = LoginService.login;
+      if (logueado == true){
+        return true;
+      } else {
+        this.router.navigate(['/inicio']);
+        return false;
+      }
+      return false;
   }
-  
+
 }
