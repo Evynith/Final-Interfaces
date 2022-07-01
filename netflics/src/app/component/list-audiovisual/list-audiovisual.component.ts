@@ -12,7 +12,7 @@ export class ListAudiovisualComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  moverDerecha(listaMover : HTMLElement){
+  moverIzquierda(listaMover : HTMLElement){
     let elem = listaMover.querySelector(".listCorta") as HTMLElement;
     let animacion = elem.animate([
       // fotogramas clave
@@ -25,7 +25,7 @@ export class ListAudiovisualComponent implements OnInit {
     });
   }
 
-  moverIzquierda(listaMover : HTMLElement){
+  moverDerecha(listaMover : HTMLElement){
     let elem = listaMover.querySelector(".listCorta") as HTMLElement;
     let animacion = elem.animate([
       // fotogramas clave
