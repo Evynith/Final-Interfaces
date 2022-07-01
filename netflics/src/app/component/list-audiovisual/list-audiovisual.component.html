@@ -2,21 +2,35 @@
 <div class="content">
     <div class="encabezado" *ngIf="typeList != 'simple' && typeList != 'mini'  && typeList != 'normal'">
         <div> <h2>Género</h2> <p *ngIf="typeList != 'continue'  && typeList != 'top' ">Una descripción</p> </div>
-        <div *ngIf="typeList != 'top'" class="position"> 
+        <div *ngIf="typeList != 'top'" class="position">
             <div [ngClass]="lugar == 1 ? 'selected' : 'notSelected'"></div>
             <div [ngClass]="lugar == 2 ? 'selected' : 'notSelected'"></div>
             <div [ngClass]="lugar == 3 ? 'selected' : 'notSelected'"></div>
             <div [ngClass]="lugar == 4 ? 'selected' : 'notSelected'"></div>
-            <div [ngClass]="lugar == 5 ? 'selected' : 'notSelected'"></div>    
+            <div [ngClass]="lugar == 5 ? 'selected' : 'notSelected'"></div>
         </div>
     </div>
 
-    <div class="carrousel" [ngStyle]="{'height' : typeList == 'mini' ? 'min-content' : 'calc( (9/16) * ((  ( 100vw - (1.1rem * 5 )) / 4.5))  )'}">
+    <div #m class="carrousel" [ngStyle]="{'height' : typeList == 'mini' ? 'min-content' : 'calc( (9/16) * ((  ( 100vw - (1.1rem * 5 )) / 4.5))  )'}">
         <div class="btnOverlay" *ngIf="typeList != 'top' && typeList != 'mini' && typeList != 'normal'">
-            <app-button [background]="'btn-aside'" [btnType] = "'arrowBack'" [btnText]="''" [linkRedirect]="'una url'"></app-button>
-            <app-button [background]="'btn-aside'" [btnType] = "'arrowFordward'" [btnText]="''" [linkRedirect]="'una url'"></app-button>
+            <app-button (click)="moverDerecha(m)" [background]="'btn-aside'" [btnType] = "'arrowBack'" [btnText]="''"></app-button>
+            <app-button (click)="moverIzquierda(m)" [background]="'btn-aside'" [btnType] = "'arrowFordward'" [btnText]="''" ></app-button>
         </div>
-        <div class="listCorta" *ngIf="typeList != 'top'&& typeList != 'mini' && typeList != 'normal'">
+        <div #listaMover class="listCorta" *ngIf="typeList != 'top'&& typeList != 'mini' && typeList != 'normal'">
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
+            <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
             <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
             <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
             <app-element-audiovisual [typeContainer]="typeList" ></app-element-audiovisual>
@@ -59,6 +73,6 @@
             <app-element-audiovisual [typeContainer]="'normal'" ></app-element-audiovisual>
         </div>
     </div>
-   
+
 
 </div>
