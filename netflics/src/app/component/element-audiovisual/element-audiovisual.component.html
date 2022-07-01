@@ -27,16 +27,16 @@
 
             <div class="contenido-hover">
                 <div>
-                    <div>
+                    <div *ngIf="loged ==true">
                         <app-button [background]="'btn-resalt'" [btnType] = "'playArrow'" [btnText]="''" ></app-button>
                         <app-button [background]="'btn-icon'" [btnType] = "'turned'" [btnText]="''" ></app-button>
                         <app-button [background]="'btn-icon'" [btnType] = "'star'" [btnText]="'9.5'" ></app-button>
                     </div>
-                    <app-button (click)="mostrarModal()" [background]="'btn-icon-not-background'" [btnType] = "'expandMore'" [btnText]="''"></app-button>
+                    <app-button  *ngIf="loged ==true" (click)="mostrarModal()" [background]="'btn-icon-not-background'" [btnType] = "'expandMore'" [btnText]="''"></app-button>
                 </div>
 
                 <div>
-                    <p>{{element.percentajePersonalized}}% Para tí &nbsp;</p>
+                    <p *ngIf="loged ==true">{{element.percentajePersonalized}}% Para tí &nbsp;</p>
                     <p>{{element.classification}} &nbsp;</p>
                     <p>Año {{element.year}} &nbsp;</p>
                     <p>{{element.duration}}min &nbsp;</p>

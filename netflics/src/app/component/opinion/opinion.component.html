@@ -34,7 +34,7 @@
                     </span>
                 </div>
             </div>
-            
+
         </picture>
         <div>
             <p> <b>{{comentario.nombreComent}}</b> dice el {{comentario.fechaComent}}</p>
@@ -42,7 +42,7 @@
         </div>
     </div>
     <div>
-        <app-button [background]="'btn-icon-not-background'" [btnType] = "'thumbUp'" [btnText]="comentario.like.toString()"></app-button>
-        <app-button [background]="'btn-icon-not-background'" [btnType] = "'thumbDown'" [btnText]="comentario.dislike.toString()" ></app-button>
+        <app-button (click)="mostrarAnim(1, $event)" [background]="'btn-icon-not-background'" [btnType] = "'thumbUp'" [btnText]="comentario.like.toString()"></app-button>
+        <app-button (click)="mostrarAnim(2, $event)" [background]="'btn-icon-not-background'" [btnType] = "'thumbDown'" [btnText]="comentario.dislike.toString()" ></app-button>
     </div>
 </div>

@@ -8,7 +8,7 @@
         flex-direction: row;
         justify-content: space-between;
         justify-content: flex-start;
-    
+
         & picture {
             width: 7%;
             display: flex;
@@ -52,4 +52,9 @@
             width: fit-content;
         }
     }
+}
+
+@keyframes movlike {
+  from { transform: translateY(0); }
+  to {transform: translateY(-300%); }
 }

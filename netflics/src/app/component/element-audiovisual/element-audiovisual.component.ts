@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ModalService } from 'src/app/service/modal.service';
 import { audiovisual } from 'src/app/models/audiovisual'
 import { ButtonComponent } from 'src/app/component/button/button.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-element-audiovisual',
@@ -42,13 +43,18 @@ toggleVideo() {
    // this.videoplayer.nativeElement.load();
     this.videoplayer.nativeElement.play();
     //this.trailerBtn2.nativeElement.click();
-  
+
   }
 }
-  constructor(private modalcito : ModalService ) { }
+  constructor(private modalcito : ModalService, private login : LoginService ) { }
 
   ngOnInit(): void {
-    
+
+  }
+
+
+  get loged() {
+    return LoginService.login;
   }
 
   mostrarModal(){
